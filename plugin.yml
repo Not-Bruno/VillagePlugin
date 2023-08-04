@@ -3,5 +3,5 @@ name: Village
 version: 1.0
 
 commands:
-   list:
-      description: Loop throu playerlist
+   cdel:
+      description: Reload Config
