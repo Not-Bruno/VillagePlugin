@@ -3,5 +3,5 @@ name: Village
 version: 1.0
 
 commands:
-   cdel:
-      description: Reload Config
+   home:
+      description: Teleport you to your Home location

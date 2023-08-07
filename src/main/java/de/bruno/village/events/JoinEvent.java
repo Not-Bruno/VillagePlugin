@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import de.bruno.village.main.Main;
+import de.bruno.village.util.Color;
 
 public class JoinEvent implements Listener{
 	@EventHandler
@@ -14,33 +15,24 @@ public class JoinEvent implements Listener{
 		Player player = event.getPlayer();
 		FileConfiguration config = Main.getPlugin().getConfig();
 		
-		if (config.getList("PlayerList")!=null) {
-			if (config.getList("PlayerList").contains(""+player.getUniqueId())) {
-				UpdatePlayerProfile(player, event, config);
-				System.out.println("PlayerList contains Player");
-			}
+		if (config.get("Player."+player.getUniqueId())==null) {
+			SetPlayerConfig(config, player);
+			event.setJoinMessage(Color.GREEN+"Hallo "+Color.ORANGE_BOLD+player.getName());
 		} else {
-			CreatePlayerProfile(player, event, config);
-			UpdateConfigPlayers(config, player);
-		}	
+			UpdatePlayerConfig(config, player);
+			event.setJoinMessage(Color.GREEN+"Wilkommen zurück "+Color.ORANGE_BOLD+player.getName());
+		}
 	}
 	
-	
-	private static void CreatePlayerProfile(Player player, PlayerJoinEvent event, FileConfiguration config) {				
-		config.set("Player."+player.getUniqueId()+".UUID", ""+player.getUniqueId());
-		config.set("Player."+player.getUniqueId()+".Name", player.getName());
-		config.set("Player."+player.getUniqueId()+".Level", player.getLevel());
-		config.set("Player."+player.getUniqueId()+".isMutet", false);
-		Main.getPlugin().saveConfig();		
-		System.out.println("Creating Profile");
+	private static void SetPlayerConfig(FileConfiguration config, Player player) {
+		config.set("Player."+player.getUniqueId(), player.getUniqueId());
+		config.set("Player."+player.getUniqueId()+".level", player.getLevel());
+		config.set("Player."+player.getUniqueId()+".hasHome", false);
+		Main.getPlugin().saveConfig();
 	}
 	
-	private static void UpdatePlayerProfile(Player player, PlayerJoinEvent event, FileConfiguration config) {
-		System.out.println("Update Profile");
-	}
-	
-	private static void UpdateConfigPlayers(FileConfiguration config ,Player player) {
-		config.set("PlayerList", player);
+	private static void UpdatePlayerConfig(FileConfiguration config, Player player) {
+		config.set("Player."+player.getUniqueId()+".level", player.getLevel());
 		Main.getPlugin().saveConfig();
 	}
 	
