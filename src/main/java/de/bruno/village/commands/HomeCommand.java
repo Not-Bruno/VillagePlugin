@@ -20,7 +20,7 @@ public class HomeCommand implements CommandExecutor {
 			FileConfiguration config = Main.getPlugin().getConfig();
 			Player player = (Player) sender;
 
-			// /home
+				// /home
 			if (args.length == 0) {
 				if (config.getBoolean("Player." + player.getUniqueId() + ".hasHome")) {
 					World world = Bukkit.getWorld(config.getString("Player." + player.getUniqueId() + ".World"));
