@@ -25,13 +25,16 @@ public class JoinEvent implements Listener {
 	}
 
 	private static void SetPlayerConfig(FileConfiguration config, Player player) {
+		System.out.println("[LOG] Create Playerprofile - "+player.getName());
 		config.set("Player." + player.getUniqueId(), player.getUniqueId());
 		config.set("Player." + player.getUniqueId() + ".level", player.getLevel());
 		config.set("Player." + player.getUniqueId() + ".hasHome", false);
+		config.set("Player." + player.getUniqueId() + ".hasRecover", false);
 		Main.getPlugin().saveConfig();
 	}
 
 	private static void UpdatePlayerConfig(FileConfiguration config, Player player) {
+		System.out.println("[LOG] Update Playerprofile - "+player.getName());
 		config.set("Player." + player.getUniqueId() + ".level", player.getLevel());
 		Main.getPlugin().saveConfig();
 	}

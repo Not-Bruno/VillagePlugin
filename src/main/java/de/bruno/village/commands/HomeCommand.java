@@ -19,7 +19,7 @@ public class HomeCommand implements CommandExecutor {
 		if (sender instanceof Player) {
 			FileConfiguration config = Main.getPlugin().getConfig();
 			Player player = (Player) sender;
-
+			
 				// /home
 			if (args.length == 0) {
 				if (config.getBoolean("Player." + player.getUniqueId() + ".hasHome")) {
@@ -36,29 +36,8 @@ public class HomeCommand implements CommandExecutor {
 
 				} else
 					player.sendMessage(Color.RED + "Du hast noch kein zuhause gesetzt!");
-
-				// /home set && /home del
-			} else if (args.length == 1) {
-				if (args[1].equalsIgnoreCase("set")) {
-					config.set("Player." + player.getUniqueId() + ".World", player.getWorld().getName());
-					config.set("Player." + player.getUniqueId() + ".X", player.getLocation().getX());
-					config.set("Player." + player.getUniqueId() + ".Y", player.getLocation().getY());
-					config.set("Player." + player.getUniqueId() + ".Z", player.getLocation().getZ());
-					config.set("Player." + player.getUniqueId() + ".Yaw", player.getLocation().getYaw());
-					config.set("Player." + player.getUniqueId() + ".Pitch", player.getLocation().getPitch());
-					config.set("Player." + player.getUniqueId() + ".hasHome", true);
-					Main.getPlugin().saveConfig();
-
-				} else if (args[1].equalsIgnoreCase("del") || args[1].equalsIgnoreCase("remove")) {
-					if (config.getBoolean("Player." + player.getUniqueId() + ".hasHome")) {
-						config.set("Player." + player.getUniqueId() + ".hasHome", false);
-					} else
-						player.sendMessage(Color.RED + "Du hast noch kein zuhause gesetzt!");
-				}
-
-			} else
-				player.sendMessage(Color.RED + "Bitte verwende " + Color.ORANGE + "/home <set> " + Color.RED + "oder "
-						+ Color.ORANGE + "/home <del||remove>");
+			} else 
+				player.sendMessage(Color.RED + "Bitte verwende " + Color.ORANGE + "/home" + Color.RED + "!");
 		} else
 			sender.sendMessage(Color.RED + "Your are not Permittet!");
 		return false;
