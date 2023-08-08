@@ -4,4 +4,8 @@ version: 1.0
 
 commands:
    home:
-      description: Teleport you to your Home location
+      description: Teleportiert dich zu deinem gesetzten zuhause
+   sethome:
+      description: Setzt dein zuhause an deine aktuelle Position
+   recover:
+      description: Stellt dein Inventart wieder her

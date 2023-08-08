@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 import de.bruno.village.main.Main;
 
-public class IventoryRecoverCommand implements CommandExecutor {
+public class InventoryRecoverCommand implements CommandExecutor {
 	
 	HashMap<String, ItemStack[]> inventory = Main.getPlugin().getInventory();
 	

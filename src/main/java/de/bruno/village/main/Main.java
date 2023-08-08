@@ -8,6 +8,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.bruno.village.commands.HomeCommand;
+import de.bruno.village.commands.InventoryRecoverCommand;
+import de.bruno.village.commands.SetHomeCommand;
 import de.bruno.village.events.JoinEvent;
 
 public class Main extends JavaPlugin{
@@ -19,17 +21,19 @@ public class Main extends JavaPlugin{
 		
 		// Commands
 		getCommand("home").setExecutor(new HomeCommand());
+		getCommand("sethome").setExecutor(new SetHomeCommand());
+		getCommand("recover").setExecutor(new InventoryRecoverCommand());
 		
 		// Events
 		PluginManager pmanager = Bukkit.getPluginManager();
 		pmanager.registerEvents(new JoinEvent(), this);
 		
-		System.out.println("Plugin VillagePlugin successfully loaded!");
+		System.out.println("[LOG] Plugin VillagePlugin successfully loaded!");
 	}
 	
 	
 	public void onDisable() {
-		System.out.println("Plugin VillagePlugin unloaded!");
+		System.out.println("[LOG] Plugin VillagePlugin unloaded!");
 	}
 	
 	
