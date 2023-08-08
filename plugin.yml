@@ -8,4 +8,4 @@ commands:
    sethome:
       description: Setzt dein zuhause an deine aktuelle Position
    recover:
-      description: Stellt dein Inventart wieder her
+      description: Stellt dein Inventart wieder her nach dem du gestoren bist
