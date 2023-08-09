@@ -31,6 +31,24 @@ public class Color {
     public static final String PURPLE_DARK = "$5";	// DARK PURPLE
     public static final String GRAY_DARK = "$8";	// DARK GRAY
     
+ // Regular Colors + reset Style
+    public static final String R_BLACK = "§r§0";   // BLACK
+    public static final String R_RED = "§r§c";     // RED
+    public static final String R_GREEN = "§r§a";   // GREEN
+    public static final String R_YELLOW = "§r§e";  // YELLOW
+    public static final String R_BLUE = "§r§9";    // BLUE
+    public static final String R_PURPLE = "§r§d";  // PURPLE
+    public static final String R_CYAN = "§r§b";    // CYAN
+    public static final String R_WHITE = "§r§f";   // WHITE
+    public static final String R_ORANGE = "§r$6";  // ORANGE
+    public static final String R_GRAY = "§r$7";	   // GRAY
+    public static final String R_RED_DARK = "§r$4";		// DARK RED
+    public static final String R_GREEN_DARK = "§r$2";	// DARK GREEN
+    public static final String R_CYAN_DARK = "§r§3";	// DARK CYAN
+    public static final String R_BLUE_DARK = "§r$1";	// DARK BLUE
+    public static final String R_PURPLE_DARK = "§r$5";	// DARK PURPLE
+    public static final String R_GRAY_DARK = "§r$8";	// DARK GRAY
+    
     // Bold
     public static final String BLACK_BOLD = "§0§l";   	// BLACK
     public static final String RED_BOLD = "§c§l";     	// RED
